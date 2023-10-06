@@ -7,18 +7,18 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: '../server/public',
-    emptyOutDir: true
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
-      'picocss': path.resolve(__dirname, '../node_modules/@picocss/pico/css')
-    }
+      picocss: path.resolve(__dirname, '../node_modules/@picocss/pico/css'),
+    },
   },
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000'
-      }
-    }
-  }
+        target: 'http://localhost:3000',
+      },
+    },
+  },
 })
