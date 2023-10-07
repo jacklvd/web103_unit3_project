@@ -1,43 +1,25 @@
-// LocationEvents.js
-
 import React, { useState, useEffect } from 'react'
 import Event from '../components/Event'
 import '../css/LocationEvents.css'
-import { getEventsByLocationId } from '../services/EventsAPI'
+import { getAllEvents } from '../services/EventsAPI'
 
-const LocationEvents = ({ index }) => {
-  const [location, setLocation] = useState([])
+const Events = () => {
   const [events, setEvents] = useState([])
   useEffect(() => {
     ;(async () => {
       try {
-        const eventsData = await getEventsByLocationId(index)
-        const locationData = []
-        console.log(eventsData)
+        const eventsData = await getAllEvents()
         setEvents(eventsData)
-        locationData.push(eventsData[0]['address'])
-        locationData.push(eventsData[0]['locationimage'])
-        locationData.push(eventsData[0]['name'])
-        setLocation({
-          address: locationData[0],
-          image: locationData[1],
-          name: locationData[2],
-        })
       } catch (error) {
         throw error
       }
     })()
-  }, [index])
+  }, [])
   return (
     <div className="location-events">
       <header>
-        <div className="location-image">
-          <img src={location.image} />
-        </div>
-
         <div className="location-info">
-          <h2>{location.name}</h2>
-          <p>{location.address}</p>
+          <h2>Events</h2>
         </div>
       </header>
 
@@ -51,6 +33,7 @@ const LocationEvents = ({ index }) => {
               date={event.date}
               time={event.time}
               image={event.picture}
+              price={event.price}
             />
           ))
         ) : (
@@ -64,4 +47,4 @@ const LocationEvents = ({ index }) => {
   )
 }
 
-export default LocationEvents
+export default Events
