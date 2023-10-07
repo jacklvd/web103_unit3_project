@@ -44,6 +44,10 @@ GIF created with [Kap](https://getkap.co/)
 [ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. -->
 
+## Database Screenshot
+
+<img src='https://github.com/jacklvd/web103_unit3_project/blob/main/database.png' title='PostgresSQL' alt='image' />
+
 ## Notes
 
 Describe any challenges encountered while building the app or any additional context you'd like to add.
